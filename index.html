@@ -5,16 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Provider Rafting Batu | Paket Arung Jeram & Outbound Terbaik</title>
+    <title>Provider Rafting Batu | Paket Arung Jeram Terbaik</title>
     <meta name="description"
         content="Provider Rafting Batu menyediakan layanan arung jeram (rafting) terbaik, outbound, dan camping di sungai arus deras yang aman. Booking sekarang untuk petualangan seru!">
     <meta name="keywords"
-        content="rafting batu, arung jeram batu, paket outbound batu, wisata batu malang, provider rafting terbaik, rafting murah">
+        content="rafting batu, arung jeram batu, paket outbound batu, wisata batu malang, provider rafting terbaik, rafting murah, rafting batu malang">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Provider Rafting Batu">
 
+    <meta name="geo.region" content="ID-JI" />
+    <meta name="geo.placename" content="Batu" />
+    <meta name="geo.position" content="-7.8712;112.5270" />
+    <meta name="ICBM" content="-7.8712, 112.5270" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://providerraftingbatu.vercel.app/">
+    <meta property="og:title" content="Provider Rafting Batu | Adrenaline Unleashed">
+    <meta property="og:description"
+        content="Rasakan sensasi petualangan arung jeram terbaik di Batu Malang. Aman, Seru, dan Profesional.">
+    <meta property="og:image" content="img/IMG_9847.webp">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="img/IMG_9847.webp" fetchpriority="high">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap"
         rel="stylesheet">
@@ -23,19 +43,58 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Provider Rafting Batu",
+      "image": "https://providerraftingbatu.vercel.app/img/IMG_9847.webp",
+      "@id": "https://providerraftingbatu.vercel.app",
+      "url": "https://providerraftingbatu.vercel.app",
+      "telephone": "+62895639068080",
+      "priceRange": "Rp 175.000 - Rp 450.000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Sungai Deras No. 88",
+        "addressLocality": "Bogor", 
+        "addressRegion": "Jawa Barat",
+        "postalCode": "16111", 
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -6.5971469,
+        "longitude": 106.799569
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+        ],
+        "opens": "07:00",
+        "closes": "17:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "124"
+      },
+      "sameAs": [
+        "https://www.instagram.com/providerraftingbatu",
+        "https://www.facebook.com/providerraftingbatu"
+      ]
+    }
+    </script>
+
     <style>
         /* =========================================
            VARIABLES & THEME CONFIG
            ========================================= */
         :root {
             --primary: #005f73;
-            /* Deep Ocean Blue */
             --primary-dark: #0a9396;
-            /* Teal */
             --secondary: #94d2bd;
-            /* Soft Mint */
             --accent: #ee9b00;
-            /* Vibrant Orange/Yellow */
             --accent-hover: #ca6702;
             --dark: #1d3557;
             --light: #f1faee;
@@ -49,7 +108,6 @@
             font-family: 'Inter', sans-serif;
             color: #4a4a4a;
             overflow-x: hidden;
-            /* Anti glitch geser kanan kiri */
             background-color: var(--light);
             scroll-behavior: smooth;
         }
@@ -181,19 +239,36 @@
         }
 
         /* =========================================
-           HERO SECTION
+           HERO SECTION (LCP OPTIMIZED)
            ========================================= */
         .hero {
             position: relative;
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(29, 53, 87, 0.85), rgba(0, 95, 115, 0.7)), url('img/IMG_9847.webp');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             display: flex;
             align-items: center;
             padding-top: 80px;
             overflow: hidden;
+            /* Background image moved to HTML img tag for LCP */
+            background-color: var(--dark);
+        }
+
+        /* LCP FIX: Background Image as absolute img */
+        .hero-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            /* Filter gelap digabung disini */
+            filter: brightness(0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            /* Diatas gambar */
         }
 
         .hero-content h1 {
@@ -217,7 +292,7 @@
             width: 100%;
             overflow: hidden;
             line-height: 0;
-            z-index: 2;
+            z-index: 3;
         }
 
         .hero-shape svg {
@@ -482,6 +557,8 @@
             position: relative;
             height: 350px;
             cursor: pointer;
+            background-color: #ddd;
+            /* Placeholder color for CLS */
         }
 
         .gallery-img-container img {
@@ -621,14 +698,12 @@
         }
 
         /* =========================================
-           FOOTER (UPDATED)
+           FOOTER
            ========================================= */
         .footer {
             background-color: #111;
-            /* Update: Warna teks lebih terang agar mudah dibaca */
             color: #d1d5db;
             padding-top: 100px;
-            /* Tambah padding atas untuk gelombang */
             position: relative;
             margin-top: 50px;
         }
@@ -636,7 +711,6 @@
         .footer-wave {
             position: absolute;
             top: -100px;
-            /* Disesuaikan dengan tinggi gelombang */
             left: 0;
             width: 100%;
             line-height: 0;
@@ -647,7 +721,6 @@
             position: relative;
             display: block;
             width: calc(100% + 1.3px);
-            /* Update: Tinggi gelombang lebih proporsional */
             height: 100px;
             fill: #111;
         }
@@ -658,7 +731,6 @@
         }
 
         .footer a {
-            /* Update: Link warna terang */
             color: #d1d5db;
             transition: 0.3s;
             text-decoration: none;
@@ -736,7 +808,8 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#"><span style="color: var(--accent);">RAFTING</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-label="Toggle navigation">
                 <span class="fas fa-bars text-white"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -756,7 +829,10 @@
     </nav>
 
     <section id="hero" class="hero">
-        <div class="container position-relative z-1">
+        <img src="img/IMG_9847.webp" alt="Rafting Batu Malang" class="hero-bg-img" fetchpriority="high" width="1920"
+            height="1080">
+
+        <div class="container position-relative z-2">
             <div class="row align-items-center">
                 <div class="col-lg-8" data-aos="fade-up">
                     <div class="hero-content">
@@ -787,7 +863,7 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right">
                     <div class="about-img-wrap">
-                        <img src="img/IMG_5536.webp" alt="Team Rafting Batu">
+                        <img src="img/IMG_8059.jpg" alt="Team Rafting Batu" loading="lazy" width="600" height="500">
                         <div class="stat-box">
                             <div class="stat-icon"><i class="fas fa-certificate"></i></div>
                             <div>
@@ -909,8 +985,8 @@
                                 <li><i class="fas fa-check-circle"></i> Local Transport</li>
                                 <li><i class="fas fa-check-circle"></i> Asuransi</li>
                             </ul>
-                            <button onclick="showPackageModal('basic')"
-                                class="btn btn-outline-dark w-100 rounded-pill">Pilih Paket</button>
+                            <button onclick="showPackageModal('basic')" class="btn btn-outline-dark w-100 rounded-pill"
+                                aria-label="Pilih Paket Basic">Pilih Paket</button>
                         </div>
                     </div>
                 </div>
@@ -930,8 +1006,8 @@
                                 <li><i class="fas fa-check-circle"></i> Foto Dokumentasi</li>
                                 <li><i class="fas fa-check-circle"></i> Asuransi & P3K</li>
                             </ul>
-                            <button onclick="showPackageModal('adventure')"
-                                class="btn btn-brand w-100 rounded-pill">Pilih Paket</button>
+                            <button onclick="showPackageModal('adventure')" class="btn btn-brand w-100 rounded-pill"
+                                aria-label="Pilih Paket Adventure">Pilih Paket</button>
                         </div>
                     </div>
                 </div>
@@ -951,7 +1027,8 @@
                                 <li><i class="fas fa-check-circle"></i> Video Drone</li>
                             </ul>
                             <button onclick="showPackageModal('outbound')"
-                                class="btn btn-outline-dark w-100 rounded-pill">Pilih Paket</button>
+                                class="btn btn-outline-dark w-100 rounded-pill" aria-label="Pilih Paket Outbound">Pilih
+                                Paket</button>
                         </div>
                     </div>
                 </div>
@@ -983,7 +1060,7 @@
             <div class="row g-3" id="gallery-container">
                 <div class="col-md-4 col-6 gallery-item-col" data-category="extreme">
                     <div class="gallery-img-container">
-                        <img src="img/IMG_8084.jpg" alt="Rafting" loading="lazy">
+                        <img src="img/IMG_8084.jpg" alt="Rafting Arus Deras" loading="lazy" width="400" height="300">
                         <div class="overlay">
                             <h5 class="text-white">Arus Deras</h5>
                         </div>
@@ -991,7 +1068,7 @@
                 </div>
                 <div class="col-md-4 col-6 gallery-item-col" data-category="family">
                     <div class="gallery-img-container">
-                        <img src="img/IMG_5570.webp" alt="Rafting" loading="lazy">
+                        <img src="img/IMG_5570.webp" alt="Rafting Family Trip" loading="lazy" width="400" height="300">
                         <div class="overlay">
                             <h5 class="text-white">Family Trip</h5>
                         </div>
@@ -999,7 +1076,8 @@
                 </div>
                 <div class="col-md-4 col-6 gallery-item-col" data-category="nature">
                     <div class="gallery-img-container">
-                        <img src="img/IMG_8059.jpg" alt="Rafting" loading="lazy">
+                        <img src="img/IMG_8059.jpg" alt="Pemandangan Green Canyon" loading="lazy" width="400"
+                            height="300">
                         <div class="overlay">
                             <h5 class="text-white">Green Canyon</h5>
                         </div>
@@ -1007,7 +1085,8 @@
                 </div>
                 <div class="col-md-4 col-6 gallery-item-col" data-category="extreme">
                     <div class="gallery-img-container">
-                        <img src="img/IMG_8063.jpg" alt="Rafting" loading="lazy">
+                        <img src="img/IMG_8063.jpg" alt="Rafting Jeram Menantang" loading="lazy" width="400"
+                            height="300">
                         <div class="overlay">
                             <h5 class="text-white">Jeram Menantang</h5>
                         </div>
@@ -1015,7 +1094,7 @@
                 </div>
                 <div class="col-md-4 col-6 gallery-item-col" data-category="family">
                     <div class="gallery-img-container">
-                        <img src="img/IMG_8066.jpg" alt="Rafting" loading="lazy">
+                        <img src="img/IMG_8066.jpg" alt="Outbound Fun Games" loading="lazy" width="400" height="300">
                         <div class="overlay">
                             <h5 class="text-white">Fun Games</h5>
                         </div>
@@ -1023,7 +1102,7 @@
                 </div>
                 <div class="col-md-4 col-6 gallery-item-col" data-category="nature">
                     <div class="gallery-img-container">
-                        <img src="img/IMG_2827.webp" alt="Rafting" loading="lazy">
+                        <img src="img/IMG_2827.webp" alt="Wisata Air Terjun" loading="lazy" width="400" height="300">
                         <div class="overlay">
                             <h5 class="text-white">Air Terjun</h5>
                         </div>
@@ -1043,8 +1122,8 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <div class="testi-card">
-                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User"
-                                        class="testi-img">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Budi"
+                                        class="testi-img" loading="lazy" width="90" height="90">
                                     <div class="mb-3 text-warning">
                                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                             class="fas fa-star"></i><i class="fas fa-star"></i><i
@@ -1063,8 +1142,8 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <div class="testi-card">
-                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User"
-                                        class="testi-img">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User Sarah"
+                                        class="testi-img" loading="lazy" width="90" height="90">
                                     <div class="mb-3 text-warning">
                                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                             class="fas fa-star"></i><i class="fas fa-star"></i><i
@@ -1081,11 +1160,11 @@
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="prev">
+                    data-bs-slide="prev" aria-label="Previous">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="next">
+                    data-bs-slide="next" aria-label="Next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 </button>
             </div>
@@ -1159,9 +1238,9 @@
                 <h2 class="fw-bold m-0">Berita Terbaru</h2>
                 <div class="d-flex gap-2">
                     <button class="btn btn-outline-dark rounded-circle" data-bs-target="#newsCarousel"
-                        data-bs-slide="prev"><i class="fas fa-arrow-left"></i></button>
+                        data-bs-slide="prev" aria-label="Previous News"><i class="fas fa-arrow-left"></i></button>
                     <button class="btn btn-outline-dark rounded-circle" data-bs-target="#newsCarousel"
-                        data-bs-slide="next"><i class="fas fa-arrow-right"></i></button>
+                        data-bs-slide="next" aria-label="Next News"><i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
 
@@ -1170,55 +1249,34 @@
                     <div class="carousel-item active">
                         <div class="row align-items-center bg-white rounded-4 overflow-hidden shadow-sm m-1">
                             <div class="col-lg-6 p-0">
-                                <img src="img/IMG_8059.jpg" class="news-img" alt="News 1">
+                                <img src="img/IMG_8059.jpg" class="news-img" alt="Manfaat Rafting" loading="lazy"
+                                    width="600" height="400">
                             </div>
                             <div class="col-lg-6 p-5">
                                 <small class="text-primary fw-bold text-uppercase">20 Januari 2026</small>
-                                <h3 class="mt-2 mb-3">Manfaat Rafting untuk Kesehatan Mental dan Fisik: Lebih dari
-                                    Sekadar
-                                    Adrenalin</h3>
+                                <h3 class="mt-2 mb-3">Manfaat Rafting untuk Kesehatan Mental</h3>
                                 <p class="text-muted">Ketika mendengar kata "rafting" atau arung jeram, sebagian besar
-                                    dari kita akan membayangkan
-                                    arus sungai yang deras, teriakan seru, dan detak jantung yang berpacu cepat.</p>
+                                    dari kita akan membayangkan arus sungai yang deras...</p>
                                 <a href="artikel-1.html"
-                                    class="btn btn-link text-dark p-0 fw-bold text-decoration-none">BACA
-                                    SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                                    class="btn btn-link text-dark p-0 fw-bold text-decoration-none">BACA SELENGKAPNYA <i
+                                        class="fas fa-arrow-right ms-1"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="row align-items-center bg-white rounded-4 overflow-hidden shadow-sm m-1">
                             <div class="col-lg-6 p-0">
-                                <img src="img/IMG_8063.jpg" class="news-img" alt="News 2">
+                                <img src="img/IMG_8063.jpg" class="news-img" alt="Tips Aman Rafting" loading="lazy"
+                                    width="600" height="400">
                             </div>
                             <div class="col-lg-6 p-5">
                                 <small class="text-primary fw-bold text-uppercase">20 Januari 2026</small>
-                                <h3 class="mt-2 mb-3">Wisata Rafting Keluarga di Malang: Tips Aman Mengajak Anak &
-                                    Lansia (2026)</h3>
+                                <h3 class="mt-2 mb-3">Tips Aman Mengajak Anak & Lansia</h3>
                                 <p class="text-muted">Liburan ke Malang Raya, khususnya Kota Batu, tak lengkap rasanya
-                                    jika hanya mengunjungi taman
-                                    hiburan buatan atau sekadar kulineran.</p>
+                                    jika hanya mengunjungi taman hiburan buatan...</p>
                                 <a href="artikel-2.html"
-                                    class="btn btn-link text-dark p-0 fw-bold text-decoration-none">BACA
-                                    SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row align-items-center bg-white rounded-4 overflow-hidden shadow-sm m-1">
-                            <div class="col-lg-6 p-0">
-                                <img src="img/IMG_5536.webp" class="news-img" alt="News 2">
-                            </div>
-                            <div class="col-lg-6 p-5">
-                                <small class="text-primary fw-bold text-uppercase">21 Januari 2026</small>
-                                <h3 class="mt-2 mb-3">Paket Rafting & Outbound Malang untuk Corporate Gathering: Solusi
-                                    Team Building Terbaik 2026</h3>
-                                <p class="text-muted">Dunia kerja di tahun 2026 semakin dinamis dan penuh tekanan.
-                                    Target perusahaan yang tinggi
-                                    seringkali berbanding lurus dengan tingkat stres karyawan (burnout).</p>
-                                <a href="artikel-3.html"
-                                    class="btn btn-link text-dark p-0 fw-bold text-decoration-none">BACA
-                                    SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                                    class="btn btn-link text-dark p-0 fw-bold text-decoration-none">BACA SELENGKAPNYA <i
+                                        class="fas fa-arrow-right ms-1"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1235,8 +1293,9 @@
                 <i class="fab fa-whatsapp me-2"></i> BOOKING SEKARANG
             </a>
         </div>
-        <div
-            style="position: absolute; top:0; left:0; width:100%; height:100%; background: url('img/IMG_8084.jpg') center/cover; opacity: 0.2;">
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; z-index: 1;">
+            <img src="img/IMG_8084.jpg" alt="Background Action"
+                style="width: 100%; height: 100%; object-fit: cover; opacity: 0.2;" loading="lazy">
         </div>
     </section>
 
@@ -1270,7 +1329,8 @@
                         </div>
                         <div class="rounded-3 overflow-hidden mt-4">
                             <iframe src="https://maps.google.com/maps?q=Batu+Malang&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                                title="Lokasi Provider Rafting Batu"></iframe>
                         </div>
                     </div>
                 </div>
@@ -1281,15 +1341,15 @@
                         <form id="waForm">
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-bold">Nama Lengkap</label>
+                                    <label class="form-label small fw-bold" for="nama">Nama Lengkap</label>
                                     <input type="text" class="form-control" id="nama" placeholder="Nama Anda" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-bold">WhatsApp</label>
+                                    <label class="form-label small fw-bold" for="phone">WhatsApp</label>
                                     <input type="number" class="form-control" id="phone" placeholder="08xx..." required>
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label small fw-bold">Pilih Paket</label>
+                                    <label class="form-label small fw-bold" for="kategori">Pilih Paket</label>
                                     <select class="form-select" id="kategori" required>
                                         <option value="" selected disabled>Pilih opsi...</option>
                                         <option value="Basic Trip">Paket Basic Trip</option>
@@ -1299,7 +1359,7 @@
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label small fw-bold">Pesan Tambahan</label>
+                                    <label class="form-label small fw-bold" for="pesan">Pesan Tambahan</label>
                                     <textarea class="form-control" id="pesan" rows="4"
                                         placeholder="Detail peserta, tanggal, dll..." required></textarea>
                                 </div>
@@ -1331,9 +1391,9 @@
                     <p class="small">Penyedia layanan wisata petualangan sungai dan outbound training terpercaya dengan
                         standar keselamatan tinggi di area Batu & Malang.</p>
                     <div class="mt-4">
-                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-6 mb-4">
@@ -1377,7 +1437,8 @@
             <div class="modal-content rounded-4 border-0">
                 <div class="modal-header bg-primary text-white rounded-top-4">
                     <h5 class="modal-title fw-bold" id="modalPackageTitle">Detail Paket</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
                     <div class="text-center mb-4">
@@ -1400,17 +1461,31 @@
     </div>
 
     <div class="floating-btns">
-        <a href="#" class="btn-float top-float" id="btnBackToTop"><i class="fas fa-arrow-up"></i></a>
-        <a href="https://wa.me/62895639068080" class="btn-float wa-float"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="btn-float top-float" id="btnBackToTop" aria-label="Back to Top"><i
+                class="fas fa-arrow-up"></i></a>
+        <a href="https://wa.me/62895639068080" class="btn-float wa-float" aria-label="Chat WhatsApp"><i
+                class="fab fa-whatsapp"></i></a>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Init AOS
-            AOS.init({ duration: 800, once: true, offset: 100 });
+            // Load AOS after page load to prevent blocking
+            setTimeout(function () {
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({ duration: 800, once: true, offset: 100 });
+                } else {
+                    // Retry if script defer is slow
+                    let checkAOS = setInterval(() => {
+                        if (typeof AOS !== 'undefined') {
+                            AOS.init({ duration: 800, once: true, offset: 100 });
+                            clearInterval(checkAOS);
+                        }
+                    }, 100);
+                }
+            }, 100);
 
             // Navbar Scroll Effect
             const navbar = document.querySelector('.navbar');
@@ -1469,7 +1544,7 @@
             });
         });
 
-        // Modal Logic
+        // Modal Logic remains the same...
         const packageData = {
             'basic': {
                 title: 'Basic Trip Rafting',
