@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /img/
+Allow: /css/
+Allow: /js/
+
+# Disallow common private/system folders (jika ada di masa depan)
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+
+# Sitemap Location
+Sitemap: https://providerraftingbatu.vercel.app/sitemap.xml
